@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { faker } from "@faker-js/faker";
 import Item, { ItemProps } from "../components/item";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Dashboard: NextPage = () => {
   const [itemData, setItemData] = useState<ItemProps[]>([]);
@@ -30,20 +31,17 @@ const Dashboard: NextPage = () => {
     <div>
       <div className="text-left mb-6 text-sm bg-sky-100 p-3">
         <div className="mb-1 text-blue-500">Signed in as: {userName}</div>
-        <a href="#" className="hover:underline ">
+        <Link href="/" className="hover:underline ">
           Sign Out
-        </a>
+        </Link>
       </div>
       <div className="text-center flex flex-col gap-6 items-center">
         {itemElements}
       </div>
       <div className="mt-8 w-full flex">
-        <a
-          href=""
-          className="text-center bg-blue-600 text-white rounded-md p-2 w-48"
-        >
+        <button className="text-center bg-blue-600 text-white rounded-md p-2 w-48">
           Add Item
-        </a>
+        </button>
       </div>
     </div>
   );
